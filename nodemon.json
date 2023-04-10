@@ -1,0 +1,10 @@
+{
+    "restartable": "rs",
+    "ext": "js",
+    "verbose": true,
+    "watch": [
+      "dist/*.js",
+      "src/*.html"
+    ]
+}
+  
