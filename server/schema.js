@@ -40,5 +40,6 @@ export const typeDefs = `#graphql
   type Query {
     books: [Book]
     getReminder(id: ID!): Reminder
+    reminders: [Reminder]
   }
 `;

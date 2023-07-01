@@ -8,3 +8,9 @@ export const books = [
         author: "Paul Auster",
     },
 ];
+export const reminders = [
+    {
+        id: 1,
+        message: 'first message',
+    }
+];

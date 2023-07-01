@@ -6,7 +6,7 @@ import http from "http";
 import cors from "cors";
 import json from "body-parser";
 import { typeDefs } from "./schema.js";
-import { books } from "./store.js";
+import { books, reminders } from "./store.js";
 import DateTimeISOResolver from "./DateTimeISOResolver.js";
 const resolvers = {
     Query: {
@@ -21,6 +21,7 @@ const resolvers = {
             };
             return reminder;
         },
+        reminders: () => reminders,
     },
     DateTimeISO: DateTimeISOResolver
 };
