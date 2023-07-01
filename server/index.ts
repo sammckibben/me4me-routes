@@ -5,39 +5,27 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import json from "body-parser";
-// import { typeDefs, resolvers } from "./schema";
-
-const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
+import { typeDefs } from "./schema.js";
+import { books } from "./store.js";
+import DateTimeISOResolver from "./DateTimeISOResolver.js";
 
 const resolvers = {
   Query: {
     books: () => books,
+    getReminder: (parent, args) => {
+      const { id } = args; // Destructure the "id" argument from the args object
+
+      // Implement the logic to fetch the reminder with the given ID (id)
+      // and return the reminder object
+      const reminder = {
+        id: "1",
+        message: "hello there"
+      };
+
+      return reminder;
+    },
   },
+  DateTimeISO: DateTimeISOResolver
 };
 
 interface MyContext {
